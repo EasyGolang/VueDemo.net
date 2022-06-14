@@ -1,4 +1,4 @@
-import '@/assets/js/SvelteDemo.net';
+import '@/assets/js/VueDemo.net';
 
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
