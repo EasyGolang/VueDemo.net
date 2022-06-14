@@ -1,6 +1,5 @@
 import '@/assets/js/VueDemo.net';
 
-declare const ViteConst: any;
 if (ViteConst) {
   window.ViteConst = {
     ...ViteConst,

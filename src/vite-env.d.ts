@@ -8,6 +8,9 @@ declare module '*.vue' {
 }
 
 declare global {
+  declare const $ref: any;
+  declare const ViteConst: any;
+
   interface Window {
     mo7Encrypt: (msg: string) => string;
     mo7Md5: (msg: string) => string;

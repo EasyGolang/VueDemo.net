@@ -11,6 +11,7 @@ module.exports = {
     // 你的全局变量（设置为 false 表示它不允许被重新赋值）
     //
     window: false,
+    $ref: false,
   },
   rules: {
     '@typescript-eslint/no-explicit-any': 0,
