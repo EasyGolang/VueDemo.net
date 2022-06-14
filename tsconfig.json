@@ -6,10 +6,13 @@
     "module": "ESNext",
     "allowJs": true,
     "checkJs": false,
+    "allowSyntheticDefaultImports": true,
     "strict": false,
+    "outDir": "./",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  },
+  "exclude": ["node_modules", "dist"]
 }

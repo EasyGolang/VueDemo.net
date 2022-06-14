@@ -1,5 +1,18 @@
 import '@/assets/js/VueDemo.net';
 
+declare const ViteConst: any;
+if (ViteConst) {
+  window.ViteConst = {
+    ...ViteConst,
+    rmAgin: 'mo777',
+  };
+}
+import { registerSW } from 'virtual:pwa-register';
+registerSW({
+  onNeedRefresh() {},
+  onOfflineReady() {},
+});
+
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
