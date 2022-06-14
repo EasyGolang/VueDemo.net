@@ -23,7 +23,7 @@ import HelloWorld from '@/lib/HelloWorld.vue';
 <style>
 @import '@/assets/base.css';
 
-#app {
+#VueApp {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -85,7 +85,7 @@ nav a:first-of-type {
     place-items: center;
   }
 
-  #app {
+  #VueApp {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;

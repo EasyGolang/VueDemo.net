@@ -13,6 +13,7 @@ module.exports = {
     window: false,
   },
   rules: {
+    '@typescript-eslint/no-explicit-any': 0,
     'no-console': [
       'warn',
       {

@@ -12,7 +12,7 @@ declare global {
     mo7Encrypt: (msg: string) => string;
     mo7Md5: (msg: string) => string;
     mo7SecretKey: string;
-    deferredPrompt: unknown;
+    deferredPrompt: any;
     ViteConst: {
       AppVersion: string;
       AppName: string;
