@@ -1,3 +1,5 @@
+import '@/assets/js/SvelteDemo.net';
+
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
