@@ -9,10 +9,10 @@ const PwaConfig = {
     sourcemap: true,
   },
   manifest: {
-    name: 'SvelteDemo',
-    short_name: 'SvelteDemo',
+    name: 'VueDemo',
+    short_name: 'VueDemo',
     theme_color: '#F0B90B',
-    description: 'SvelteDemo, golang serve',
+    description: 'VueDemo, golang serve',
     lang: 'zh',
     icons: [
       {
