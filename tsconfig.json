@@ -1,11 +1,11 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["src/vite-env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.vue"],
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
     "allowJs": true,
-    "checkJs": false,
+    "checkJs": true,
     "allowSyntheticDefaultImports": true,
     "strict": false,
     "outDir": "./",
