@@ -6,6 +6,7 @@ import (
 
 	"VueDemo.net/server/global"
 	"VueDemo.net/server/global/config"
+	"VueDemo.net/server/router/api"
 	"VueDemo.net/server/router/middle"
 	"VueDemo.net/server/router/private"
 	"VueDemo.net/server/router/public"
@@ -49,6 +50,8 @@ func Start() {
 
 	// api
 	r_api := app.Group("/api")
+
+	r_api.Get("/ping", api.Ping)
 
 	// /api/public
 	public.Router(r_api)
