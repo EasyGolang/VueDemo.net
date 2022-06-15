@@ -6,6 +6,9 @@ import path from 'path';
 import eslintPlugin from 'vite-plugin-eslint';
 import Inspect from 'vite-plugin-inspect';
 
+import Components from 'unplugin-vue-components/vite';
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+
 const PwaConfig = {
   workbox: {
     sourcemap: true,
@@ -53,7 +56,16 @@ const ProxyUrl = `http://localhost:${AppPackage.Port}`;
 
 const pathSrc = path.resolve(__dirname, 'src');
 export default defineConfig({
-  plugins: [vue(), VitePWA(PwaConfig), eslintPlugin(), Inspect()],
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [NaiveUiResolver()],
+      dts: path.resolve(pathSrc, 'components.d.ts'),
+    }),
+    VitePWA(PwaConfig),
+    eslintPlugin(),
+    Inspect(),
+  ],
   resolve: {
     alias: {
       '@': pathSrc,
