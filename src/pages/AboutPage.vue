@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { getToken, mStorage } from '@/utils/tools';
 import { outLogin } from '@/api/Account';
+import XIcon from '@/lib/XIcon.vue';
+
 const token = getToken();
 const UserInfo = mStorage.get('user_info');
 
@@ -11,17 +13,24 @@ const handleOutLogin = () => {
 
 <template>
   <div class="about">
+    <XIcon color="green" size="48" name="AudioFilled" />
+
     <div v-if="token">
       <br />
-      <img class="Avatar" :src="UserInfo.Avatar" alt="" srcset="" />
+      <n-avatar
+        round
+        :size="100"
+        :src="UserInfo.Avatar"
+        fallback-src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+      />
       <br />
-      欢迎访问,{{ UserInfo.NickName }}
+      <div>欢迎访问,{{ UserInfo.NickName }}</div>
       <br />
-      <button @click="handleOutLogin">退出登录</button>
+      <n-button @click="handleOutLogin">退出登录</n-button>
     </div>
     <div v-if="!token">
       <br />
-      <a href="/login"><button>请登录</button></a>
+      <a href="/login"> <n-button>登录</n-button> </a>
       <br />
     </div>
   </div>
