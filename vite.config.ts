@@ -70,10 +70,6 @@ export default defineConfig({
       ProxyUrl,
     }),
   },
-  build: {
-    outDir: './dist',
-    sourcemap: true,
-  },
   server: {
     host: true,
     port: AppPackage.Port + 1,
