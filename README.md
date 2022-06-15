@@ -8,7 +8,9 @@ https://cn.vitejs.dev/
 
 https://staging-cn.vuejs.org/
 
-https://element-plus.gitee.io/zh-CN/
+## UI 框架推荐
+
+https://www.naiveui.com/zh-CN/os-theme
 
 ## Recommended IDE Setup
 
