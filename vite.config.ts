@@ -1,8 +1,10 @@
-import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { VitePWA } from 'vite-plugin-pwa';
+import path from 'path';
+
 import eslintPlugin from 'vite-plugin-eslint';
+import Inspect from 'vite-plugin-inspect';
 
 const PwaConfig = {
   workbox: {
@@ -49,18 +51,12 @@ import AppPackage from './package.json';
 // const ProxyUrl = 'https://api.mo7.cc';
 const ProxyUrl = `http://localhost:${AppPackage.Port}`;
 
-// https://vitejs.dev/config/
+const pathSrc = path.resolve(__dirname, 'src');
 export default defineConfig({
-  plugins: [
-    vue({
-      reactivityTransform: true,
-    }),
-    VitePWA(PwaConfig),
-    eslintPlugin(),
-  ],
+  plugins: [vue(), VitePWA(PwaConfig), eslintPlugin(), Inspect()],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@': pathSrc,
     },
   },
   define: {
