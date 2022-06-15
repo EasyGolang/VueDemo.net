@@ -1,29 +1,44 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
 import HelloWorld from '@/lib/HelloWorld.vue';
+
+import { NConfigProvider, zhCN, dateZhCN } from 'naive-ui';
+import type { GlobalThemeOverrides } from 'naive-ui';
+
+const themeOverrides: GlobalThemeOverrides = {
+  common: {
+    primaryColor: '#409EFF',
+  },
+};
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <NConfigProvider
+    preflight-style-disabled
+    inline-theme-disabled
+    :theme-overrides="themeOverrides"
+    :locale="zhCN"
+    :date-locale="dateZhCN"
+  >
+    <header>
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <div class="wrapper">
+        <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/login">Login</RouterLink>
+        </nav>
+      </div>
+    </header>
 
-  <RouterView />
+    <RouterView />
+  </NConfigProvider>
 </template>
 
 <style>
-@import '@/assets/base.css';
-
 #VueApp {
   max-width: 1280px;
   margin: 0 auto;

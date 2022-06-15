@@ -57,7 +57,9 @@ const ProxyUrl = `http://localhost:${AppPackage.Port}`;
 const pathSrc = path.resolve(__dirname, 'src');
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      reactivityTransform: true,
+    }),
     Components({
       resolvers: [NaiveUiResolver()],
       dts: path.resolve(pathSrc, 'components.d.ts'),

@@ -30,3 +30,6 @@ sys_env.yaml
 *.dll
 *.so
 *.dylib
+
+auto-imports.d.ts
+components.d.ts

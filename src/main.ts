@@ -1,4 +1,6 @@
 import '@/assets/js/VueDemo.net';
+import 'normalize.css';
+import '@/assets/css/global.less';
 
 if (ViteConst) {
   window.ViteConst = {
@@ -15,7 +17,7 @@ registerSW({
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 
-import App from '@/App.vue';
+import App from '@/lib/router/App.vue';
 import router from '@/lib/router';
 
 const app = createApp(App);

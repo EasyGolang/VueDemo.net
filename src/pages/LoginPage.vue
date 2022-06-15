@@ -37,14 +37,23 @@ const Submit = async (e: any) => {
 <template>
   <main>
     <h1>登录</h1>
-    <input type="text" v-model="from.Email" name="Email" placeholder="请输入邮箱" autoComplete="new-password" />
+    <n-input
+      type="text"
+      size="small"
+      v-model:value="from.Email"
+      name="Email"
+      placeholder="请输入邮箱"
+      :inputProps="{ autocomplete: 'password' }"
+    />
     <br />
-    <input
+    <br />
+    <n-input
       type="password"
-      v-model="from.Password"
+      size="small"
+      :inputProps="{ autocomplete: 'password' }"
+      v-model:value="from.Password"
       name="Password"
       placeholder="请输入密码"
-      autoComplete="new-password"
     />
     <br />
     <br />
@@ -55,11 +64,12 @@ const Submit = async (e: any) => {
     <br />
     <br />
 
-    <button @click="Submit">提交</button>
+    <n-button type="primary" @click="Submit"> 提交 </n-button>
+    <br />
     <br />
 
     返回信息：
-    <div v-if="from.resMsg" class="resMsg">{{ JSON.stringify(from.resMsg) }}</div>
+    <div v-if="from.resMsg.Code" class="resMsg">{{ JSON.stringify(from.resMsg) }}</div>
   </main>
 </template>
 
