@@ -1,88 +1,95 @@
 <script setup lang="ts">
-import { nextTick } from 'vue';
 import { cloneDeep, setToken } from '@/utils/tools';
 import { useRouter } from 'vue-router';
+import { Logo } from '@/config/constant';
+import XIcon from '@/lib/XIcon.vue';
 import { login } from '@/api/Account';
 
 const $router = useRouter();
 
-const from = $ref({
+let SubmitStatus: boolean = $ref(false);
+
+const formValue = $ref({
   Email: '',
   Password: '',
-  resMsg: {},
 });
 
-const Submit = async (e: any) => {
-  const Elm = e.target;
-  Elm.disabled = true;
+const Submit = async () => {
+  SubmitStatus = true;
   const res = await login({
-    Email: from.Email,
-    Password: from.Password,
+    ...cloneDeep(formValue),
   });
-  Elm.disabled = false;
-  from.resMsg = res;
+  SubmitStatus = false;
 
   if (res.Code > 0) {
     await setToken(res.Data.Token);
-    $router.push('/about');
+    $router.replace('/');
   }
-
-  nextTick(() => {
-    console.info(e);
-    console.info(cloneDeep(from));
-  });
 };
 </script>
 
 <template>
-  <main>
-    <h1>登录</h1>
-    <n-input
-      type="text"
-      size="small"
-      v-model:value="from.Email"
-      name="Email"
-      placeholder="请输入邮箱"
-      :inputProps="{ autocomplete: 'password' }"
-    />
-    <br />
-    <br />
-    <n-input
-      type="password"
-      size="small"
-      :inputProps="{ autocomplete: 'password' }"
-      v-model:value="from.Password"
-      name="Password"
-      placeholder="请输入密码"
-    />
-    <br />
-    <br />
-    Email: {{ from.Email }}
-    <br />
-    <br />
-    Password: {{ from.Password }}
-    <br />
-    <br />
+  <h1 class="PageTitle">Login</h1>
+  <div class="PageWrapper">
+    <div className="Login__logo-box">
+      <img className="Login__logo" :src="Logo" alt="" />
+    </div>
+    <h2 className="Login__title">
+      <div>登录</div>
+    </h2>
 
-    <n-button type="primary" @click="Submit"> 提交 </n-button>
-    <br />
-    <br />
+    <n-form ref="loginForm" :model="formValue" size="small" class="myForm">
+      <n-form-item path="age" class="myForm__item">
+        <n-input
+          name="Email"
+          v-model:value="formValue.Email"
+          :inputProps="{ autocomplete: 'password' }"
+          placeholder="请输入邮箱地址"
+        >
+          <template #prefix> <XIcon name="MailOutlined" /> </template>
+        </n-input>
+      </n-form-item>
+      <n-form-item path="password" class="myForm__item">
+        <n-input
+          v-model:value="formValue.Password"
+          type="password"
+          name="Password"
+          show-password-on="mousedown"
+          placeholder="请输入密码"
+          :inputProps="{ autocomplete: 'password' }"
+        ></n-input>
+      </n-form-item>
 
-    返回信息：
-    <div v-if="from.resMsg.Code" class="resMsg">{{ JSON.stringify(from.resMsg) }}</div>
-  </main>
+      <n-form-item path="password" class="myForm__item">
+        <n-button :disabled="SubmitStatus" type="primary" @click="Submit"> 登录 </n-button>
+      </n-form-item>
+    </n-form>
+  </div>
 </template>
 
 <style lang="less" scoped>
-.resMsg {
-  margin: 12px;
-  border: 10px solid gray;
-  padding: 15px;
-  &.success {
-    border-color: green;
-  }
-  &.fail {
-    border-color: red;
-  }
+.Login__logo-box {
+  padding-bottom: 36px;
+}
+
+.Login__logo {
+  display: block;
+  border-radius: 100px;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.Login__title {
+  margin: 0;
+  text-align: center;
+}
+
+.Login__title-str {
+  display: block;
+}
+.Login__forget {
+  text-align: center;
 }
 </style>

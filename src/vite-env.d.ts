@@ -16,6 +16,7 @@ declare global {
     mo7Md5: (msg: string) => string;
     mo7SecretKey: string;
     deferredPrompt: any;
+    $message: any;
     ViteConst: {
       AppVersion: string;
       AppName: string;

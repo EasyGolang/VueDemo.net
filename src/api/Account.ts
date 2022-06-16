@@ -15,7 +15,7 @@ export const login = (data: loginType) => {
   });
 };
 
-export const outLogin = () => {
+export const logout = () => {
   removeToken();
   window.location.replace('/login');
 };

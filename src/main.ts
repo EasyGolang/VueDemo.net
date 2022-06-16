@@ -1,4 +1,4 @@
-import '@/assets/js/VueDemo.net';
+import '@/assets/js/DiskCloud.net';
 import 'normalize.css';
 import '@/assets/css/global.less';
 
@@ -17,7 +17,7 @@ registerSW({
 import { createApp } from 'vue';
 
 import App from '@/lib/router/App.vue';
-import router from '@/lib/router';
+import { router } from '@/lib/router';
 
 const app = createApp(App);
 

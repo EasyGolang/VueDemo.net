@@ -1,16 +1,8 @@
 import { ajax_json } from '@/utils/http';
 
-export const getPing = (data?: any) => {
+export const Ping = (data?: any) => {
   return ajax_json({
-    url: '/public/ping',
-    data,
-    method: 'get',
-  });
-};
-
-export const postPing = (data?: any) => {
-  return ajax_json({
-    url: '/public/ping',
+    url: '/api/ping',
     data,
     method: 'post',
   });

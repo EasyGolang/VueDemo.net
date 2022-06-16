@@ -46,6 +46,7 @@ export const removeToken = () => {
 
 import { getUserInfo } from '@/api/Account';
 import type { resDataType } from './utils.d';
+import { UserInfoStore } from '@/store';
 
 export const setToken = async (tokenStr: string) => {
   mStorage.set('token', tokenStr);
@@ -54,7 +55,7 @@ export const setToken = async (tokenStr: string) => {
     if (localToken) {
       getUserInfo().then((res) => {
         if (res.Code > 0 && res.Data.UserID) {
-          mStorage.set('user_info', res.Data);
+          UserInfoStore.update(res.Data);
           resolve(res);
         } else {
           removeToken();

@@ -1,13 +1,10 @@
 import type { resType, resDataType } from './utils.d';
-
 export const res_dispose = (response: resType): resDataType => {
-  const config = response.config;
   const data = response.data;
 
-  if (config.message !== -1) {
-    if (data.Code < 0) {
-      return data;
-    }
+  if (data.Code < 0) {
+    window.$message.error(data.Msg);
+    return data;
   }
 
   return data;
