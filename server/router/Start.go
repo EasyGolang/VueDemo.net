@@ -13,6 +13,7 @@ import (
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/favicon"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
 	"github.com/gofiber/fiber/v2/middleware/logger"
@@ -33,7 +34,7 @@ func Start() {
 	})
 
 	// 跨域
-	// app.Use(cors.New())
+	app.Use(cors.New())
 
 	// 限流
 	app.Use(limiter.New(limiter.Config{
@@ -50,8 +51,7 @@ func Start() {
 
 	// api
 	r_api := app.Group("/api")
-
-	r_api.Get("/ping", api.Ping)
+	r_api.Post("/ping", api.Ping)
 
 	// /api/public
 	public.Router(r_api)

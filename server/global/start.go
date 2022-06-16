@@ -17,11 +17,5 @@ func Start() {
 		SleepTime: time.Hour * 8,
 	}).Start()
 
-	// 加载系统配置文件
-	// SysEnvInt()
-
-	// 加载App启动配置文件
-	// AppEnvInt()
-
 	Log.Println(`系统初始化完成`)
 }
