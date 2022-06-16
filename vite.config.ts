@@ -51,11 +51,17 @@ const PwaConfig = {
 
 import AppPackage from './package.json';
 
-// const ProxyUrl = 'https://api.mo7.cc';
-const ProxyUrl = `http://localhost:${AppPackage.Port}`;
+// const ProxyUrl = 'https://file.mo7.cc';
+const ProxyUrl = `http://127.0.0.1:${AppPackage.Port}`;
 
+// https://vitejs.dev/config/
 const pathSrc = path.resolve(__dirname, 'src');
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': pathSrc,
+    },
+  },
   plugins: [
     vue({
       reactivityTransform: true,
@@ -68,11 +74,6 @@ export default defineConfig({
     eslintPlugin(),
     Inspect(),
   ],
-  resolve: {
-    alias: {
-      '@': pathSrc,
-    },
-  },
   define: {
     ViteConst: JSON.stringify({
       AppVersion: AppPackage.version,
