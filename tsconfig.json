@@ -7,6 +7,8 @@
     "allowJs": true,
     "checkJs": true,
     "allowSyntheticDefaultImports": true,
+    "types": ["naive-ui/volar"],
+    "lib": ["ESNext"],
     "strict": false,
     "outDir": "./",
     "baseUrl": ".",
