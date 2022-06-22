@@ -41,8 +41,8 @@ func Start() {
 
 	// 限流
 	app.Use(limiter.New(limiter.Config{
-		Max:        20,
-		Expiration: 2 * time.Second,
+		Max:        100,
+		Expiration: 1 * time.Second,
 	}))
 
 	// 日志中间件

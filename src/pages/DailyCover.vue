@@ -35,7 +35,7 @@ const getBing = () => {
       <img src="//file.mo7.cc/api/public/bz?idx=1" />
     </div>
 
-    <h3>接口请求示例: https://bz.mo7.cc/api/public/url</h3>
+    <h3>接口请求示例: https://file.mo7.cc/api/public/url</h3>
     <n-button @click="getBing" type="primary"> 发起 GET 请求 </n-button>
     <p>
       {{ JSON.stringify(bingRes) }}
