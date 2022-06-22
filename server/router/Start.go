@@ -1,6 +1,7 @@
 package router
 
 import (
+	"net/http"
 	"os"
 	"time"
 
@@ -10,11 +11,13 @@ import (
 	"VueDemo.net/server/router/middle"
 	"VueDemo.net/server/router/private"
 	"VueDemo.net/server/router/public"
+	"VueDemo.net/www"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/favicon"
+	"github.com/gofiber/fiber/v2/middleware/filesystem"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
@@ -59,6 +62,14 @@ func Start() {
 
 	// /api/private
 	private.Router(r_api)
+
+	// 静态文件服务器
+	app.Use("/", filesystem.New(filesystem.Config{
+		Root:         http.FS(www.Static),
+		Browse:       true,
+		Index:        "index.html",
+		NotFoundFile: "index.html",
+	}))
 
 	listenHost := mStr.Join(":", config.AppInfo.Port)
 	global.Log.Println(mStr.Join(`启动服务: http://127.0.0.1`, listenHost))
