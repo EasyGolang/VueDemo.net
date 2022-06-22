@@ -31,5 +31,9 @@ sys_env.yaml
 *.so
 *.dylib
 
+!www/index.go
+
+www
+
 auto-imports.d.ts
 components.d.ts

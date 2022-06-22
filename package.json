@@ -9,7 +9,6 @@
     "serve": "./_shell/serve_start.sh",
     "vue:build": "vite build",
     "vue:check": "vue-tsc --noEmit",
-    "preview": "vite preview",
     "git": "./_shell/gitSet.sh",
     "sync": "./_shell/sync_git.sh",
     "deploy": "./_shell/deploy.sh"
