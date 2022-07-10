@@ -38,6 +38,17 @@ const showDrawer = () => {
           </div>
 
           <div className="TopBar__item">
+            <RouterLink to="/upload_file" class="item_btn">
+              <n-button text size="tiny">
+                <template #icon>
+                  <XIcon name="CloudUploadOutlined" />
+                </template>
+                上传文件
+              </n-button>
+            </RouterLink>
+          </div>
+
+          <div className="TopBar__item">
             <RouterLink to="/daily_cover" class="item_btn">
               <n-button text size="tiny">
                 <template #icon>

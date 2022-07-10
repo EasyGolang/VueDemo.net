@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/pages/HomePage.vue';
 
-const routes = [
+const routes: any = [
   {
     path: '/',
     name: 'home',
@@ -11,6 +11,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('@/pages/LoginPage.vue'),
+  },
+  {
+    path: '/upload_file',
+    name: 'upload_file',
+    component: () => import('@/pages/UpLoadPage.vue'),
   },
   {
     path: '/about',
