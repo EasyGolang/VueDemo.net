@@ -34,6 +34,7 @@ func Start() {
 	// 创建服务
 	app := fiber.New(fiber.Config{
 		ServerHeader: "VueDemo.net",
+		BodyLimit:    1024 * 1024 * 1024,
 	})
 
 	// 跨域
