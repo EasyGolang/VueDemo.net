@@ -10,7 +10,7 @@ import (
 )
 
 func Ping(c *fiber.Ctx) error {
-	json := mFiber.DataParser(c)
+	json := mFiber.Parser(c)
 
 	ReturnData := make(map[string]any)
 	ReturnData["ResParam"] = json

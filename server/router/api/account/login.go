@@ -16,7 +16,7 @@ func Login(c *fiber.Ctx) error {
 		Email    string `bson:"Email"`
 		Password string `bson:"Password"`
 	}
-	mFiber.DataParser(c, &json)
+	mFiber.Parser(c, &json)
 
 	if json.Email != dbType.UserInfo.Email {
 		return c.JSON(result.ErrAccount.WithMsg("该账号未注册，请先去注册"))
