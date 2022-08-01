@@ -4,7 +4,7 @@ import (
 	"VueDemo.net/server/global/config"
 	"VueDemo.net/server/router/middle"
 	"VueDemo.net/server/router/result"
-	"github.com/EasyGolang/goTools/mRes/mFiber"
+	"github.com/EasyGolang/goTools/mFiber"
 	"github.com/EasyGolang/goTools/mStr"
 	"github.com/gofiber/fiber/v2"
 )
