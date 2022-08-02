@@ -14,4 +14,3 @@ git pull &&
   git commit -m "${desc}" &&
   git push &&
   echo "同步完成"
-exit 0
