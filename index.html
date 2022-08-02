@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh">
   <head>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js', { scope: '/' });
+        });
+      }
+    </script>
     <meta http-equiv="Expires" content="0" />
     <meta http-equiv="Cache-control" content="no-store" />
 
