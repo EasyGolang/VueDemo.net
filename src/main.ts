@@ -2,6 +2,11 @@ import '@/assets/js/VueDemo.net';
 import 'normalize.css';
 import '@/assets/css/global.less';
 
+import { registerSW } from 'virtual:pwa-register';
+registerSW({
+  onOfflineReady() {},
+});
+
 if (ViteConst) {
   window.ViteConst = {
     ...ViteConst,
