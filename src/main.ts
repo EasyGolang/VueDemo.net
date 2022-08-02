@@ -8,11 +8,6 @@ if (ViteConst) {
     rmAgin: 'mo777',
   };
 }
-// import { registerSW } from 'virtual:pwa-register';
-// registerSW({
-//   onNeedRefresh() {},
-//   onOfflineReady() {},
-// });
 
 import { createApp } from 'vue';
 
