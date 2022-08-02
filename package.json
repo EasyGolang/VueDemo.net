@@ -5,12 +5,12 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "run-p vue:check vue:build && ./_shell/build.sh",
+    "build": "pnpm i && run-p vue:check vue:build && ./_shell/build.sh",
     "serve": "./_shell/serve_start.sh",
     "vue:build": "vite build",
     "vue:check": "vue-tsc --noEmit",
-    "git": "./_shell/gitSet.sh",
-    "sync": "./_shell/sync_git.sh",
+    "git": "./_shell/git_set.sh",
+    "sync": "./_shell/git_sync.sh",
     "deploy": "./_shell/deploy.sh"
   },
   "dependencies": {
