@@ -51,7 +51,7 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()],
       dts: path.resolve(pathSrc, 'components.d.ts'),
     }),
-    VitePWA(PwaConfig),
+    // VitePWA(PwaConfig),
   ],
   define: {
     ViteConst: JSON.stringify({
