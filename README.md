@@ -4,6 +4,10 @@ pnpm install
 
 pnpm build
 
+pnpm serve
+
+pnpm dev
+
 ## 文档
 
 https://cn.vitejs.dev/
