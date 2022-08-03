@@ -9,7 +9,6 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 const PwaConfig: any = {
   injectRegister: 'script',
   registerType: 'autoUpdate',
-  minify: true,
   workbox: {
     sourcemap: true,
   },
